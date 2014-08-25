@@ -15,6 +15,7 @@ history
  
 現在施工中(インフラ)
 =====================
+* [yum install詳細](http://qiita.com/pollseed/items/6e87c2e4e96d16717c28)
 * [apache設定->chefに記述](https://github.com/pollseed/chef-common/tree/master/site-cookbooks/apache)
 * VM wareにインフラを構築、SSHアクセスでデプロイ可能状態まで持っていくこと
 * ステージング環境構築(CentOS 6.5)→まずは、デプロイ環境を構築します
