@@ -14,8 +14,10 @@
 master failed to start, check stderr log for details
 
 bugfix)
+=====
 worker_directory => working_directory
 
+-
 
 /usr/local/lib/ruby/2.1.0/fileutils.rb:250:in `mkdir': Permission denied @ dir_s_mkdir - tmp (Errno::EACCES)
         from /usr/local/lib/ruby/2.1.0/fileutils.rb:250:in `fu_mkdir'
@@ -37,8 +39,10 @@ worker_directory => working_directory
 master failed to start, check stderr log for details
 
 bugfix)
+=====
 chmod 777 /home/admin/bastion
 
+-
 
 /usr/local/lib/ruby/gems/2.1.0/gems/unicorn-4.8.3/lib/unicorn/configurator.rb:91:in `block in reload': directory for stderr_path=/home/admin/bastion/log/unicorn.stderr.log not writable (ArgumentError)
         from /usr/local/lib/ruby/gems/2.1.0/gems/unicorn-4.8.3/lib/unicorn/configurator.rb:87:in `each'
@@ -53,8 +57,10 @@ chmod 777 /home/admin/bastion
 master failed to start, check stderr log for details
 
 bugfix)
+=====
 chmod 777 /home/admin/bastion/log
 
+-
 
 ->unicorn.stderr.log
 /usr/local/lib/ruby/gems/2.1.0/gems/execjs-2.2.1/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
@@ -90,17 +96,21 @@ chmod 777 /home/admin/bastion/log
         from /usr/local/bin/unicorn_rails:23:in `<main>'
 
 bugfix)
+=====
 $ gem install libv8 -v '3.3.10.4' -- --with-system-v8
 $ gem install therubyracer -v '0.10.2' -- --with-v8-dir
 
+-
 
 There was an error while trying to write to Gemfile.lock. It is likely that
 you need to allow write permissions for the file at path:
 /home/admin/bastion/Gemfile.lock
 
 bugfix)
+=====
 chmod 777 Gemfile.lock
 
+-
 
 I, [2014-08-26T15:19:49.903693 #2580]  INFO -- : Refreshing Gem list
 /home/admin/bastion/app/models/test.rb:2:in `<class:Test>': uninitialized constant Test::Mongoid (NameError)
@@ -146,8 +156,10 @@ I, [2014-08-26T15:19:49.903693 #2580]  INFO -- : Refreshing Gem list
         from /usr/local/bin/unicorn_rails:23:in `<main>'
 
 bugfix)
+=====
 rm -f /home/admin/bastion/app/models/test.rb
 
+-
 
 I, [2014-08-26T15:21:58.588119 #2636]  INFO -- : Refreshing Gem list
 I, [2014-08-26T15:22:02.003173 #2636]  INFO -- : listening on addr=/tmp/admin.sock fd=11
@@ -175,8 +187,10 @@ E, [2014-08-26T15:22:02.013789 #2636] ERROR -- : Unknown database 'bastion_prod'
 /usr/local/bin/unicorn_rails:23:in `<main>'
 
 bugfix)
+=====
 bastion_prodを作った
 
+-
 
 I, [2014-08-26T15:28:46.963447 #2731]  INFO -- : Refreshing Gem list
 I, [2014-08-26T15:28:50.538026 #2731]  INFO -- : unlinking existing socket=/tmp/admin.sock
@@ -191,8 +205,10 @@ E, [2014-08-26T15:28:50.551613 #2731] ERROR -- : undefined method `worker_proces
 /usr/local/bin/unicorn_rails:23:in `<main>'
 
 bugfix)
+=====
 worker_processed=>worker_processes
 
+-
 
 I, [2014-08-26T15:30:56.538205 #2759]  INFO -- : Refreshing Gem list
 I, [2014-08-26T15:30:59.908745 #2759]  INFO -- : unlinking existing socket=/tmp/admin.sock
@@ -207,15 +223,18 @@ E, [2014-08-26T15:30:59.916260 #2759] ERROR -- : undefined method `Fileread' for
 /usr/local/bin/unicorn_rails:23:in `<main>'
 
 bugfix)
+=====
 Fileread=>File.read
 
 ****成功した！！！！！
 
+-
 
 [root@pollseed bastion]# chkconfig admin on
 サービス admin は、chkconfig をサポートしていません。
 
 bugfix)
+=====
 /etc/rc.d/init.d/adminに追記
 #!/bin/sh
 #
