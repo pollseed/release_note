@@ -10,3 +10,9 @@ release_note
 [dummy](http://example.com)
 
 ## その他
+
+## エラーメモ
+
+```
+git checkout error_memo
+```
