@@ -17,8 +17,8 @@ history
 =====================
 * [yum install詳細](http://qiita.com/pollseed/items/6e87c2e4e96d16717c28)
 * [apache設定->chefに記述](https://github.com/pollseed/chef-common/tree/master/site-cookbooks/apache)
-  →nginxに移行中(Monomix)→未テスト
-* Unicorn環境構築中
+  →nginxに移行中(Monomix)→構築完了、インフラコード実装完了
+* Unicorn環境構築中→仮で完了
 * VM wareにインフラを構築、SSHアクセスでデプロイ可能状態まで持っていくこと
 * ステージング環境構築(CentOS 6.5)→まずは、デプロイ環境を構築します
 * ruby 安定版
