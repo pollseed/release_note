@@ -14,5 +14,5 @@ release_note
 ## エラーメモ
 
 ```
-git checkout error_memo
+git checkout error-memo
 ```
