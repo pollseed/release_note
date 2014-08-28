@@ -19,6 +19,7 @@ history
 * (旧)[apache設定](https://github.com/pollseed/chef-common/tree/master/site-cookbooks/apache)
 * (新)nginxに移行中(Monomix)[admin](https://github.com/pollseed/chef-common/blob/master/site-cookbooks/dstat/recipes/nginx_admin), [default](https://github.com/pollseed/chef-common/blob/master/site-cookbooks/dstat/recipes/nginx_default)→構築完了、インフラコード実装完了
 * [Unicorn環境](https://github.com/pollseed/chef-common/blob/master/site-cookbooks/dstat/recipes/unicorn.rb)構築中→仮で完了
+* Capistrano構築
 * VM wareにインフラを構築、SSHアクセスでデプロイ可能状態まで持っていくこと
 * ステージング環境構築(CentOS 6.5)→まずは、デプロイ環境を構築します
 * ruby 安定版
