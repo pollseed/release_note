@@ -22,6 +22,7 @@ history
 * Capistrano構築→実装中（※ライブラリの依存が激しすぎてこけまくるので、この辺整備したいなぁ）
 * 1. cap deploy:setup 
 * 2. cap deploy:update
+* 3. cap deploy:restart
 * VM wareにインフラを構築、SSHアクセスでデプロイ可能状態まで持っていくこと
 * ステージング環境構築(CentOS 6.5)→まずは、デプロイ環境を構築します
 * ruby 安定版
