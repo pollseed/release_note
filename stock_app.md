@@ -104,6 +104,20 @@ $ cap deploy:update
     [example.com] executing command
     command finished in 168ms
 ```
+次はリモートサーバにログインします。SSHで鍵を設定してグループに追加したユーザでやること。
+```
+$ ssh XXX
+$ cd /home/root/production/releases
+$ ll
+```
+こんな感じでちゃんと存在していればOK
+```
+drwxrwxr-x. 15 root root 4096  8月 30 08:08 2014 20140904110824
+drwxrwxr-x. 15 root root 4096  8月 30 11:02 2014 20140905001428
+```
+→ちなみにこれ削除用のバッチも用意してあるので、時間あるときに適用すること。
+大体keep_releaseは10ぐらいでOK
+
 3. finishedが見えたら、次は、再起動します。
 ```
 $ cap deploy:restart
@@ -116,4 +130,9 @@ $ cap deploy:restart
 なお、１度でもこの順序が理解出来ていれば以下のコマンドで代用できます。が、エラー時に理解するためにも順番は把握しておきたい。
 ```
 $ cap deploy
+```
+
+### 緊急時
+```
+$ cap deploy:rollback
 ```
