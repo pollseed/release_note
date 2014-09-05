@@ -4,6 +4,7 @@ history
 * 2014-08-09:初期作成
 * 2014-08-22:微修正
 * 2014-08-25:インフラ部分追記
+* 2014-09-05:リリース手順書追記
 
 実装完了部分(アプリケーション)
 =====================
@@ -44,3 +45,75 @@ history
 #[ユーザ側]
 * 未定
 
+
+リリース手順書
+=====================
+### 背景
+Capistrano+Unicorn+nginxを使用しています。
+それというのも、RubyOnRailsでアプリケーションを開発しているからです。
+相性がいいということ、多少先駆者がいて、参考資料が多いことがあげられます。
+
+1. ローカルマシンで作業します。共有リポジトリの全ソースがコミットされた状態にします
+```
+# masterであるかどうか
+$ git branch -a
+# Mステータスのファイルがないかどうか
+$ git status -s
+```
+2. リリース開始します。まずは、リモートサーバのアプリケーションをアップデートします
+```
+$ cap deploy:update
+```
+ごちゃごちゃログが吐かれて最終的に以下のログが出ればOK
+```
+ ** [out :: example.com] 
+    command finished in 12572ms
+  * executing "ls -1 /home/root/production/shared/assets/manifest* | wc -l"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 156ms
+  * executing "ls /home/root/production/shared/assets/manifest*"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 153ms
+  * executing "[ -e /home/root/production/shared/assets/manifest-b2529e94d38e1f80904507866e45d873.json ] || mv -- /home/root/production/shared/assets/manifest* /home/root/production/shared/assets/manifest-b2529e94d38e1f80904507866e45d873.json"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 161ms
+  * executing "ls -x /home/root/production/releases"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 189ms
+  * executing "cp -- /home/root/production/shared/assets/manifest-b2529e94d38e1f80904507866e45d873.json /home/root/production/releases/20140905001428/assets_manifest.json"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 160ms
+  * 2014-09-05 09:14:43 executing `deploy:create_symlink'
+  * executing "rm -f /home/root/production/current &&  ln -s /home/root/production/releases/20140905001428 /home/root/production/current"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 164ms
+ ** transaction: commit
+    triggering after callbacks for `deploy:update'
+  * executing "/bin/cp /home/root/production/shared/config/database.yml /home/root/production/releases/20140905001428/config/"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 181ms
+  * executing "/bin/cp /home/root/production/shared/config/unicorn.rb /home/root/production/releases/20140905001428/config/"
+    servers: ["example.com"]
+    [example.com] executing command
+    command finished in 168ms
+```
+3. finishedが見えたら、次は、再起動します。
+```
+$ cap deploy:restart
+```
+以下のログが吐かれれば無事成功です
+```
+* 2014-09-05 09:22:41 executing `deploy:restart'
+```
+
+なお、１度でもこの順序が理解出来ていれば以下のコマンドで代用できます。が、エラー時に理解するためにも順番は把握しておきたい。
+```
+$ cap deploy
+```
