@@ -20,13 +20,14 @@ history
 * (旧)[apache設定](https://github.com/pollseed/chef-common/tree/master/site-cookbooks/apache)
 * (新)nginxに移行中(Monomix)[admin](https://github.com/pollseed/chef-common/blob/master/site-cookbooks/dstat/recipes/nginx_admin), [default](https://github.com/pollseed/chef-common/blob/master/site-cookbooks/dstat/recipes/nginx_default)→構築完了、インフラコード実装完了
 * [Unicorn環境](https://github.com/pollseed/chef-common/blob/master/site-cookbooks/dstat/recipes/unicorn.rb)構築中→仮で完了
-* Capistrano構築→実装中（※ライブラリの依存が激しすぎてこけまくるので、この辺整備したいなぁ）
+* Capistrano構築→実装中（※ライブラリの依存が激しすぎてこけまくるので、この辺整備したいなぁ→完了したが、自動スクリプトに未組込）
 * 1. cap deploy:setup 
 * 2. cap deploy:update
 * 3. cap deploy:restart
-* VM wareにインフラを構築、SSHアクセスでデプロイ可能状態まで持っていくこと
-* ステージング環境構築(CentOS 6.5)→まずは、デプロイ環境を構築します
+* VM wareにインフラを構築、SSHアクセスでデプロイ可能状態まで持っていくこと→完了
+* ステージング環境構築(CentOS 6.5)→まずは、デプロイ環境を構築します→完了
 * ruby 安定版
+* nginxに乗せて稼働→production用（IP制限かけること）
 
 次実装予定
 =====================
