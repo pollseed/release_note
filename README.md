@@ -4,7 +4,7 @@ release_note
 
 # サービス一覧
 ## 株分析サービス
-[stock_app](stock_app.md)
+[stock_app](stock_app/README.md)
 
 ## リアルタイム国内データ分析
 [dummy](http://example.com)
