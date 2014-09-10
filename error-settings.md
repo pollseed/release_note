@@ -1,6 +1,13 @@
 エラーメモ
 =====
 
+なにこれ
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=6&arch=i386&repo=os error was
+14: PYCURL ERROR 6 - "Couldn't resolve host 'mirrorlist.centos.org'"
+Error: Cannot find a valid baseurl for repo: base
+
 /home/admin/bastion/config/unicorn.rb:4:in `reload': undefined method `worker_directory' for #<Unicorn::Configurator:0x34fe414> (NoMethodError)
         from /usr/local/lib/ruby/gems/2.1.0/gems/unicorn-4.8.3/lib/unicorn/configurator.rb:75:in `instance_eval'
         from /usr/local/lib/ruby/gems/2.1.0/gems/unicorn-4.8.3/lib/unicorn/configurator.rb:75:in `reload'
