@@ -8,6 +8,21 @@ Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=6&arch=i386&
 14: PYCURL ERROR 6 - "Couldn't resolve host 'mirrorlist.centos.org'"
 Error: Cannot find a valid baseurl for repo: base
 
+## 解決策
+なぜか、ipv6使ってるとおかしくなるみたい→とりあえずこれ試してみて
+```
+/etc/sysconfig/network
+NETWORKING_IPV6=no
+
+/etc/modprobe.d/disable-ipv6.conf
+options ipv6 disable=1
+
+$ chkconfig ip6tables off
+$ chkconfig --listでちゃんとOFFってるか確認すること
+```
+
+-
+
 /home/admin/bastion/config/unicorn.rb:4:in `reload': undefined method `worker_directory' for #<Unicorn::Configurator:0x34fe414> (NoMethodError)
         from /usr/local/lib/ruby/gems/2.1.0/gems/unicorn-4.8.3/lib/unicorn/configurator.rb:75:in `instance_eval'
         from /usr/local/lib/ruby/gems/2.1.0/gems/unicorn-4.8.3/lib/unicorn/configurator.rb:75:in `reload'
