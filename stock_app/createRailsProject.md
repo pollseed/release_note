@@ -57,3 +57,5 @@ $ cp ~/Downloads/bootstrap/js/bootstrap.min.js vendor/assets/javascripts/
 //= require bootstrap.min
 //= require_tree .
 ```
+
+それ以外は、database.ymlなどは全部設定をコピー
